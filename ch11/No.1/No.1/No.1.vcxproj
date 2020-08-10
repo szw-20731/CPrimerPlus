@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{DB161E05-D874-41DE-A586-06D8D7A3E543}</ProjectGuid>
-    <RootNamespace>No2</RootNamespace>
+    <ProjectGuid>{08763325-F173-4972-8F4F-32381BBA0267}</ProjectGuid>
+    <RootNamespace>No1</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -118,10 +118,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Person.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Person.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
