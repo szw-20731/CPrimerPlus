@@ -1,0 +1,13 @@
+1. string初始化为空
+	string s = "";
+2. char数组初始化为空  
+	char c[25];
+	c[0] = '\0';
+3. string 数组可以直接用 = 复制
+	string s1 = "hello";
+	string s2 = s1;
+4. char数组用strcpy_s复制(strcpy_s只复制有数据的部分  memcpy(c1, c2, strlen(c2))复制全部)
+	char c1[25] = "asdf";
+	char c2[20] = "";
+	strcpy_s(c2, c1);  
+	 
