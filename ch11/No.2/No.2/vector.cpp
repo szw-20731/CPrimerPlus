@@ -3,32 +3,32 @@
 using namespace std;
 
 
-void vector::set_x()
+void vector::set_x(double mag, double ang)
 {
 	x = mag * cos(ang);
 }
 
-void vector::set_y()
+void vector::set_y(double mag, double ang)
 {
 	y = mag * sin(ang);
 }
 
-void vector::set_mag()
+double vector::get_mag()
 {
-	mag = sqrt(x * x + y * y);
+	return sqrt(x * x + y * y);
 }
 
-void vector::set_ang()
+double vector::get_ang()
 {
 	if (x == 0 && y == 0)
-		ang = 0;
+		return 0;
 	else
-		ang = atan2(y, x);
+		return atan2(y, x);
 }
 
 vector::vector()
 {
-	x = y = mag = ang = 0;
+	x = y =  0;
 	mode = RECT;
 }
 
@@ -38,19 +38,15 @@ vector::vector(double n1, double n2, Mode form)
 	if (mode == RECT) {
 		x = n1;
 		y = n2;
-		set_mag();
-		set_ang();
 	}
 	else if (mode == POL) {
-		mag = n1;
-		ang = n2;
-		set_x();
-		set_y();
+		set_x(n1, n2);
+		set_y(n1, n2);
 	}
 	else {
 		cout << "Incorrect 3rd argument to Vector() --";
 		cout << "vector set to 0\n";
-		x = y = mag = ang = 0;
+		x = y = 0;
 		mode = RECT;
 	}
 }
@@ -61,19 +57,15 @@ void vector::reset(double n1, double n2, Mode form)
 	if (mode == RECT) {
 		x = n1;
 		y = n2;
-		set_mag();
-		set_ang();
 	}
 	else if (mode == POL) {
-		mag = n1;
-		ang = n2;
-		set_x();
-		set_y();
+		set_x(n1, n2);
+		set_y(n1, n2);
 	}
 	else {
 		cout << "Incorrect 3rd argument to Vector() --";
 		cout << "vector set to 0\n";
-		x = y = mag = ang = 0;
+		x = y = 0;
 		mode = RECT;
 	}
 }
@@ -113,13 +105,13 @@ vector vector::operator*(double n) const
 	return vector(n * x, n * y);
 }
 
-ostream &operator<< (ostream & os, const vector &a)
+ostream &operator<< (ostream & os, vector &a) 
 {
 	if (a.mode == vector::RECT) {
 		os << "(x, y) = (" << a.x << ", " << a.y << ")";
 	}
 	else if (a.mode == vector::POL) {
-		os << "(mag, ang) = (" << a.mag << ", " << a.ang << ")";
+		os << "(mag, ang) = (" << a.get_mag() << ", " << a.get_ang() << ")";
 	}
 	else {
 		os << "Vector object mode is invalid!";
